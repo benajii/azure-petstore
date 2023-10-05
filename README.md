@@ -8,7 +8,7 @@ My azure Pet store project
 - [Azure Button](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button)
     - this is a simple and quick link to deploy a template
 
-![](petstore/00-setup-your-environment/images/00_6.png)
+![](petstore\00-setup-your-environment\images\00_6.png)
 
 ### Step 1
 - [Query IP of contain from CLI](https://docs.docker.com/engine/reference/commandline/inspect/)
