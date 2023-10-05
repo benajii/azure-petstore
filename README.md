@@ -9,7 +9,7 @@ My azure Pet store project
     - this is a simple and quick link to deploy a template
 - [Adding Images to ReadME](https://www.educative.io/answers/adding-images-to-readmemd-in-github)
 
-![](petstore/01-build-the-docker-images/images/01_13.png)
+![](petstore/00-setup-your-environment/images/00_6.png)
 
 ### Step 1
 - [Query IP of contain from CLI](https://docs.docker.com/engine/reference/commandline/inspect/)
