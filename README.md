@@ -1,4 +1,4 @@
-# azure-petstore
+# Stundze Pet Store
 My azure Pet store project
 
 ## Project Notes
