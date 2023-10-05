@@ -8,13 +8,13 @@ My azure Pet store project
 - [Azure Button](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button)
     - this is a simple and quick link to deploy a template
 
-![](images/00_6.png)
+![](images/00_6.PNG)
 
 ### Step 1
 - [Query IP of contain from CLI](https://docs.docker.com/engine/reference/commandline/inspect/)
     - the command to query the container included a typo in calling the container image, use the container name without the ':Latest'
 
-![](images/01_13.png)
+![](images/01_13.PNG)
 
 ## Resouces Used
 - Firstly this project was guided by [chtrembl](https://chtrembl.github.io/azure-cloud/petstore/). Thank you for creating this educational guide.
