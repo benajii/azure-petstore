@@ -23,6 +23,10 @@ My azure Pet store project
 
 ![Step 3 Complete](petstore/03-configure-app-service-for-cd/images/03_5.png)
 
+### [Step 4](petstore/04-configure-git-hub-action-for-ci-cd-into-app-service/README.md)
+
+![Step 4 Complete](petstore/04-configure-git-hub-action-for-ci-cd-into-app-service/images/04_10.png)
+
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
     - I used this to practice writing and reading bicep files
