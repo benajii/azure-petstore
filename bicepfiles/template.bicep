@@ -1,11 +1,11 @@
-param sitesname string
-param azurepetstoreasp string
-param azurepetstorecr_name string
-param Region string
+param PetStoreSitename string
+param petstoreASPname string
+param PetStoreCRname string
+param PetStoreRegion string
 
-resource ContainerRegistry 'Microsoft.ContainerRegistry/registries@2020-11-01-preview' = {
-  name: azurepetstorecr_name
-  location: Region
+resource Container_Registry 'Microsoft.ContainerRegistry/registries@2020-11-01-preview' = {
+  name: PetStoreCRname
+  location: PetStoreRegion
   sku: {
     name: 'Standard'
     tier: 'Standard'
@@ -36,14 +36,14 @@ resource ContainerRegistry 'Microsoft.ContainerRegistry/registries@2020-11-01-pr
   }
 }
 
-resource serverfarmsasp 'Microsoft.Web/serverfarms@2018-02-01' = {
-  name: azurepetstoreasp
-  location: Region
+resource serverfarm_ASP 'Microsoft.Web/serverfarms@2018-02-01' = {
+  name: petstoreASPname
+  location: PetStoreRegion
   sku: {
-    name: 'P1v2'
-    tier: 'PremiumV2'
-    size: 'P1v2'
-    family: 'Pv2'
+    name: 'F1'
+    tier: 'Free'
+    size: 'F1'
+    family: 'F'
     capacity: 1
   }
   kind: 'linux'
@@ -59,25 +59,25 @@ resource serverfarmsasp 'Microsoft.Web/serverfarms@2018-02-01' = {
   }
 }
 
-resource sites_azurepetstore 'Microsoft.Web/sites@2018-11-01' = {
-  name: sitesname
-  location: Region
+resource Site 'Microsoft.Web/sites@2018-11-01' = {
+  name: PetStoreSitename
+  location: PetStoreRegion
   kind: 'app,linux,container'
   properties: {
     enabled: true
     hostNameSslStates: [
       {
-        name: '${sitesname}.azurewebsites.net'
+        name: '${PetStoreSitename}.azurewebsites.net'
         sslState: 'Disabled'
         hostType: 'Standard'
       }
       {
-        name: '${sitesname}.scm.azurewebsites.net'
+        name: '${PetStoreSitename}.scm.azurewebsites.net'
         sslState: 'Disabled'
         hostType: 'Repository'
       }
     ]
-    serverFarmId: serverfarmsasp.id
+    serverFarmId: serverfarm_ASP.id
     reserved: true
     isXenon: false
     hyperV: false
@@ -93,10 +93,10 @@ resource sites_azurepetstore 'Microsoft.Web/sites@2018-11-01' = {
   }
 }
 
-resource sites_azurepetstore_web 'Microsoft.Web/sites/config@2018-11-01' = {
-  parent: sites_azurepetstore
+resource Website_Config 'Microsoft.Web/sites/config@2018-11-01' = {
+  parent: Site
   name: 'web'
-  location: Region
+  location: PetStoreRegion
   properties: {
     numberOfWorkers: 1
     defaultDocuments: [
@@ -117,12 +117,12 @@ resource sites_azurepetstore_web 'Microsoft.Web/sites/config@2018-11-01' = {
     httpLoggingEnabled: false
     logsDirectorySizeLimit: 35
     detailedErrorLoggingEnabled: false
-    publishingUsername: sitesname
+    publishingUsername: '$azurepetstore'
     azureStorageAccounts: {}
     scmType: 'None'
     use32BitWorkerProcess: true
     webSocketsEnabled: false
-    alwaysOn: true
+    alwaysOn: false
     managedPipelineMode: 'Integrated'
     virtualApplications: [
       {
@@ -163,12 +163,12 @@ resource sites_azurepetstore_web 'Microsoft.Web/sites/config@2018-11-01' = {
   }
 }
 
-resource HostNameBinding 'Microsoft.Web/sites/hostNameBindings@2018-11-01' = {
-  parent: sites_azurepetstore
-  name: '${sitesname}.azurewebsites.net'
-  location: Region
+resource Site_Hostname 'Microsoft.Web/sites/hostNameBindings@2018-11-01' = {
+  parent: Site
+  name: '${PetStoreSitename}.azurewebsites.net'
+  location: PetStoreRegion
   properties: {
-    siteName: sitesname
+    siteName: 'azurepetstore'
     hostNameType: 'Verified'
   }
 }
