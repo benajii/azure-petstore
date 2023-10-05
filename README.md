@@ -7,11 +7,14 @@ My azure Pet store project
     - I used this to gain experiance writing and reading bicep files.
 - [Azure Button](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button)
     - this is a simple and quick link to deploy a template
-- ![](petstore/00-setup-your-environment/images/00_6.png)
+
+![](petstore/00-setup-your-environment/images/00_6.png)
+
 ### Step 1
 - [Query IP of contain from CLI](https://docs.docker.com/engine/reference/commandline/inspect/)
     - the command to query the container included a typo in calling the container image, use the container name without the ':Latest'
-- ![](petstore/01-build-the-docker-images/images/01_13.png)
+
+![](petstore/01-build-the-docker-images/images/01_13.png)
 
 ## Resouces Used
 - Firstly this project was guided by [chtrembl](https://chtrembl.github.io/azure-cloud/petstore/). Thank you for creating this educational guide.
