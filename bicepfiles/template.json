@@ -13,6 +13,10 @@
         "registries_azurepetstorecr_name": {
             "defaultValue": "youraliasazurepetstorecr",
             "type": "String"
+        },
+        "location": {
+            "defaultValue": "Westus",
+            "type": "String"
         }
     },
     "variables": {},
@@ -21,7 +25,7 @@
             "type": "Microsoft.ContainerRegistry/registries",
             "apiVersion": "2020-11-01-preview",
             "name": "[parameters('registries_azurepetstorecr_name')]",
-            "location": "eastus",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "Standard",
                 "tier": "Standard"
@@ -55,26 +59,31 @@
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
             "name": "[parameters('serverfarms_azurepetstoreasp_name')]",
-            "location": "East US",
+            "location": "[parameters('location')]",
             "sku": {
-                "Tier": "Free",
-                "Name": "F1"
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 1
             },
-            "kind": "windows",
+            "kind": "linux",
             "properties": {
-                "name": "[parameters('serverfarms_azurepetstoreasp_name')]",
-                "workerSize": "0",
-                "workerSizeId": "0",
-                "numberOfWorkers": "1",
-                "hyperV": true,
-                "zoneRedundant": false
+                "perSiteScaling": false,
+                "maximumElasticWorkerCount": 1,
+                "isSpot": false,
+                "reserved": true,
+                "isXenon": false,
+                "hyperV": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
             }
         },
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
             "name": "[parameters('sites_azurepetstore_name')]",
-            "location": "East US",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_azurepetstoreasp_name'))]"
             ],
@@ -112,7 +121,7 @@
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2018-11-01",
             "name": "[concat(parameters('sites_azurepetstore_name'), '/web')]",
-            "location": "East US",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_azurepetstore_name'))]"
             ],
@@ -185,7 +194,7 @@
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2018-11-01",
             "name": "[concat(parameters('sites_azurepetstore_name'), '/', parameters('sites_azurepetstore_name'), '.azurewebsites.net')]",
-            "location": "East US",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_azurepetstore_name'))]"
             ],
