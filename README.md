@@ -7,16 +7,17 @@ My azure Pet store project
     - I used this to gain experiance writing and reading bicep files.
 - [Azure Button](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button)
     - this is a simple and quick link to deploy a template
+- [Adding Images to ReadME](https://www.educative.io/answers/adding-images-to-readmemd-in-github)
 
-![](images/00_6.PNG)
+![](petstore/01-build-the-docker-images/images/01_13.png)
 
 ### Step 1
 - [Query IP of contain from CLI](https://docs.docker.com/engine/reference/commandline/inspect/)
     - the command to query the container included a typo in calling the container image, use the container name without the ':Latest'
 
-![](images/01_13.PNG)
+![](petstore/01-build-the-docker-images/images/01_13.png)
 
 ## Resouces Used
 - Firstly this project was guided by [chtrembl](https://chtrembl.github.io/azure-cloud/petstore/). Thank you for creating this educational guide.
 - I converted [this](https://github.com/benajii/azure-petstore/blob/main/bicepfiles/template.json) template to Bicep and included paremeters for Names and region, see all deployment files in the [bicep folder](https://github.com/benajii/azure-petstore/tree/main/bicepfiles). 
-- Azure button isnt currently supported for bicep so this is the ARM Template [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbenajii%2Fazure-petstore%2Fmain%2Fbicepfiles%2Ftemplate.json). I have converted the template to the free linux tier.
+- Azure button isnt currently supported for bicep so this is the ARM Template, I have converted the template to the free linux tier. [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbenajii%2Fazure-petstore%2Fmain%2Fbicepfiles%2Ftemplate.json).
