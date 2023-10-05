@@ -57,22 +57,17 @@
             "name": "[parameters('serverfarms_azurepetstoreasp_name')]",
             "location": "East US",
             "sku": {
-                "name": "P1v2",
-                "tier": "PremiumV2",
-                "size": "P1v2",
-                "family": "Pv2",
-                "capacity": 1
+                "Tier": "Free",
+                "Name": "F1"
             },
-            "kind": "linux",
+            "kind": "windows",
             "properties": {
-                "perSiteScaling": false,
-                "maximumElasticWorkerCount": 1,
-                "isSpot": false,
-                "reserved": true,
-                "isXenon": false,
-                "hyperV": false,
-                "targetWorkerCount": 0,
-                "targetWorkerSizeId": 0
+                "name": "[parameters('serverfarms_azurepetstoreasp_name')]",
+                "workerSize": "0",
+                "workerSizeId": "0",
+                "numberOfWorkers": "1",
+                "hyperV": true,
+                "zoneRedundant": false
             }
         },
         {
