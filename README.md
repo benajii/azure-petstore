@@ -27,6 +27,15 @@ My azure Pet store project
 
 ![Step 4 Complete](petstore/04-configure-git-hub-action-for-ci-cd-into-app-service/images/04_10.png)
 
+###[Step 5](petstore/05-create-an-azure-k8s-cluster/README.md)
+- [Video on what is Helm](https://www.youtube.com/watch?v=-ykwb1d0DXU)
+- [How to Install Helm on windows](https://phoenixnap.com/kb/install-helm)
+- [How to delete hellm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
+    - I Had to restart the helm commands after there were some typos in the commands
+
+![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_10.png)
+
+
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
     - I used this to practice writing and reading bicep files
