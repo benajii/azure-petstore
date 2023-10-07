@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: stundzepetstoreakspipe 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stundzepetstoreakspipe
+  template:
+    metadata:
+      labels:
+        app: stundzepetstoreakspipe 
+    spec:
+      containers:
+        - name: stundzepetstoreakspipe 
+          image: stundzepetstorecr.azurecr.io/stundzepetstoreakspipe
+          ports:
+          - containerPort: 80
