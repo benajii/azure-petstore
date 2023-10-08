@@ -27,7 +27,7 @@ My azure Pet store project
 
 ![Step 4 Complete](petstore/04-configure-git-hub-action-for-ci-cd-into-app-service/images/04_10.png)
 
-###[Step 5](petstore/05-create-an-azure-k8s-cluster/README.md)
+### [Step 5](petstore/05-create-an-azure-k8s-cluster/README.md)
 - [Video on what is Helm](https://www.youtube.com/watch?v=-ykwb1d0DXU)
 - [How to Install Helm on windows](https://phoenixnap.com/kb/install-helm)
 - [How to delete hellm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
@@ -36,12 +36,14 @@ My azure Pet store project
 ![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_10.png)
 
 ### [step 6](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/README.md)
--Due to the limitations of a free DevOPs account i encountered error "No hosted parallelism has been purchased or granted" I found a workaround by creating an agent pool on my computer:
+Due to the limitations of a free DevOPs account i encountered error "No hosted parallelism has been purchased or granted" I found a workaround by creating an agent pool on my computer:
 - [Azure Pipelines agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser)
 - [Install Azure Pipelines agent on personal computer](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops)
 -[Learn Module for setting up an AzureDevOPs personal Agent](https://learn.microsoft.com/en-us/training/modules/host-build-agent/4-create-build-agent)
 - Inorder to route the project to your Personal Agent Enable the following User Defind Capabilities on in Azure DevOPs (for this project):
     - 1. 'maven' 2. 'Agent.Version -gtVersion 2.199'
+
+![user defined capabilities](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_13.png)
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
