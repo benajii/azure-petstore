@@ -101,8 +101,7 @@ stages:
   jobs: 
   - job: Automation
     displayName: Automation Testing
-    pool:
-      vmImage: 'windows-latest'
+    pool: 'DevOPs pc'
     steps:
         - task: TriggerPipeline@1
           inputs:
