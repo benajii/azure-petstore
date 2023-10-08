@@ -39,7 +39,6 @@ stages:
   - job: Build
     displayName: Build App
     pool: 'DevOPs pc'
-      vmImage: 'ubuntu-latest'
     steps:
     - script: echo -n -e "{\"version\":\"$(Build.BuildNumber) - $(tag)\"}" > petstore/petstoreproductservice/src/main/resources/version.json
 
@@ -78,7 +77,6 @@ stages:
   - deployment: Deploy
     displayName: Deploy App
     pool: 'DevOPs pc'
-      vmImage: 'ubuntu-latest'
     environment: 'Development'
     strategy:
       runOnce:
