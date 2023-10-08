@@ -42,30 +42,30 @@ stages:
     steps:
     - script: echo -n -e "{\"version\":\"$(Build.BuildNumber) - $(tag)\"}" > petstore/petstoreproductservice/src/main/resources/version.json
 
-    - task: Maven@3
-      continueOnError: true 
-      displayName: Build Spring Boot Jar
-      inputs:
-        mavenPomFile: 'petstore/petstoreproductservice/pom.xml'
-        mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'Path'
-        jdkDirectory: 'C:\Program Files (x86)\Common Files\java-se-8u41-ri'
-        jdkVersionOption: '8'
-        jdkArchitectureOption: 'x86'
-        publishJUnitResults: true
-        testResultsFiles: 'petstore/petstoreproductservice/target/surefire-reports/TEST-*.xml'
-        codeCoverageToolOption: 'jaCoCo'
-        goals: 'package'
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
-          latest
+#    - task: Maven@3
+#      continueOnError: true 
+#      displayName: Build Spring Boot Jar
+#      inputs:
+#        mavenPomFile: 'petstore/petstoreproductservice/pom.xml'
+#        mavenOptions: '-Xmx3072m'
+#        javaHomeOption: 'Path'
+#        jdkDirectory: 'C:\Program Files (x86)\Common Files\java-se-8u41-ri'
+#        jdkVersionOption: '8'
+#        jdkArchitectureOption: 'x86'
+#        publishJUnitResults: true
+#        testResultsFiles: 'petstore/petstoreproductservice/target/surefire-reports/TEST-*.xml'
+#        codeCoverageToolOption: 'jaCoCo'
+#        goals: 'package'
+#    - task: Docker@2
+#      displayName: Build and push an image to container registry
+#      inputs:
+#        command: buildAndPush
+#        repository: $(imageRepository)
+#        dockerfile: $(dockerfilePath)
+#        containerRegistry: $(dockerRegistryServiceConnection)
+#        tags: |
+#          $(tag)
+#          latest
           
     - upload: manifests
       artifact: manifests
