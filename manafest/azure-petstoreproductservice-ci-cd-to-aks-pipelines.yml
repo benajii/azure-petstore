@@ -48,7 +48,8 @@ stages:
       inputs:
         mavenPomFile: 'petstore/petstoreproductservice/pom.xml'
         mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'JDKVersion'
+        javaHomeOption: 'Path'
+        jdkDirectory: 'C:\Program Files (x86)\Common Files\java-se-8u41-ri'
         jdkVersionOption: '8'
         jdkArchitectureOption: 'x86'
         publishJUnitResults: true
