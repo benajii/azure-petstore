@@ -16,9 +16,9 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'azurepetstorecr'
+  dockerRegistryServiceConnection: 'Stundzepetstorecr'
   imageRepository: 'petstoreproductservice'
-  containerRegistry: 'azurepetstorecontainerregistry.azurecr.io'
+  containerRegistry: 'stundzepetstorecr.azurecr.io'
   dockerfilePath: 'petstore/petstoreproductservice/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: '$(crImagePullSecretGlobalV2)'
@@ -38,7 +38,7 @@ stages:
  
   - job: Build
     displayName: Build App
-    pool:
+    pool: 'DevOPs pc'
       vmImage: 'ubuntu-latest'
     steps:
     - script: echo -n -e "{\"version\":\"$(Build.BuildNumber) - $(tag)\"}" > petstore/petstoreproductservice/src/main/resources/version.json
@@ -77,7 +77,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy App
-    pool:
+    pool: 'DevOPs pc'
       vmImage: 'ubuntu-latest'
     environment: 'Development'
     strategy:

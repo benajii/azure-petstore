@@ -20,6 +20,9 @@ My azure Pet store project
 ![Step 2 Completed](petstore/02-push-the-docker-images-to-acr/images/02_3.png)
 
 ### [Step 3](petstore/03-configure-app-service-for-cd/README.md)
+- To reduce costs I:
+    - deployed a Basic tier App Service Plan
+    - Shut down the App when not in use
 
 ![Step 3 Complete](petstore/03-configure-app-service-for-cd/images/03_5.png)
 
@@ -28,10 +31,14 @@ My azure Pet store project
 ![Step 4 Complete](petstore/04-configure-git-hub-action-for-ci-cd-into-app-service/images/04_10.png)
 
 ### [Step 5](petstore/05-create-an-azure-k8s-cluster/README.md)
+- Inorder to reduce costs I:
+    - deployed a free tier AKS
+    - used a vm image that didn't support premium storage, this reduced my at-rest costs
+    - Shutdown the AKS when not in use
 - [Video on what is Helm](https://www.youtube.com/watch?v=-ykwb1d0DXU)
 - [How to Install Helm on windows](https://phoenixnap.com/kb/install-helm)
 - [How to delete hellm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
-    - I Had to restart the helm commands after there were some typos in the commands
+    - I had to restart the helm commands after there were some typos in the commands
 
 ![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_10.png)
 
@@ -41,9 +48,22 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 - [Install Azure Pipelines agent on personal computer](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops)
 -[Learn Module for setting up an AzureDevOPs personal Agent](https://learn.microsoft.com/en-us/training/modules/host-build-agent/4-create-build-agent)
 - Inorder to route the project to your Personal Agent Enable the following User Defind Capabilities on in Azure DevOPs (for this project):
-    - 1. 'maven' 2. 'Agent.Version -gtVersion 2.199'
+    - 'maven'
+    - 'Agent.Version -gtVersion 2.199'
 
 ![user defined capabilities](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_13.png)
+
+    - In your Pipeline you will have to target your Agent pool, my personal agent pool was 'Dev Ops'
+
+![Agent pool](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_14.png)
+- To enable maven tasks on your agent, you need to Install [Java 1.8](https://codenotfound.com/java-download-install-jdk-8-windows.html) Mavin JDK, [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html)
+
+
+    - Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
+    - Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images
+
+
+
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
