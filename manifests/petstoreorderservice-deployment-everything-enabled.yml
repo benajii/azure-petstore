@@ -21,7 +21,7 @@ spec:
         resources:
           requests:
             cpu: 250m
-            memory: 1Gi
+            memory: 0.5Gi
           limits:
             cpu: 500m
             memory: 2Gi
@@ -56,7 +56,7 @@ metadata:
   name: aks-petstoreorderservice-hpa
 spec:
   # orders are in memory for the moment, need to implement a distributed order cache before inscreasing scale...
-  maxReplicas: 4 # define max replica count
+  maxReplicas: 1 # define max replica count
   minReplicas: 1 # define min replica count
   scaleTargetRef:
     apiVersion: apps/v1
