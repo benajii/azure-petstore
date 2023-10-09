@@ -5,5 +5,12 @@
         "MD025": {
             "front_matter_title": ""
         }
-    }
+    },
+    "azureFunctions.projectSubpath": "petstore\\petstoreaoaifunction",
+    "azureFunctions.javaBuildTool": "maven",
+    "azureFunctions.deploySubpath": "petstore\\petstoreaoaifunction/target/azure-functions/petstoreaoaifunction",
+    "azureFunctions.projectLanguage": "Java",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "package (functions)"
 }
