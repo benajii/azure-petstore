@@ -48,8 +48,9 @@ stages:
       inputs:
         mavenPomFile: 'petstore/petstoreproductservice/pom.xml'
         mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'Path'
-        jdkDirectory: 'C:\Program Files (x86)\Common Files\java-se-8u41-ri'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
+        jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: 'petstore/petstoreproductservice/target/surefire-reports/TEST-*.xml'
         codeCoverageToolOption: 'jaCoCo'
