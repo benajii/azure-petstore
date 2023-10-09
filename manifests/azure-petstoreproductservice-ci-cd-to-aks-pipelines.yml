@@ -21,7 +21,7 @@ variables:
   containerRegistry: 'stundzepetstorecr.azurecr.io'
   dockerfilePath: 'petstore/petstoreproductservice/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: '$(crImagePullSecretGlobal)'
+  imagePullSecret: '$($(crImagePullSecretGlobal))'
 
 stages:
 - stage: Build
