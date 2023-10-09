@@ -46,8 +46,8 @@ My azure Pet store project
 Due to the limitations of a free DevOPs account i encountered error "No hosted parallelism has been purchased or granted" I found a workaround by creating an agent pool on my computer:
 - [Azure Pipelines agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser)
 - [Install Azure Pipelines agent on personal computer](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops)
--[Learn Module for setting up an AzureDevOPs personal Agent](https://learn.microsoft.com/en-us/training/modules/host-build-agent/4-create-build-agent)
-- Inorder to route the project to your Personal Agent Add these 'user defined capabilities' 'Project Settings'>'agent pools'>'<your Agent Pool>'>'<your Agent Name>'>'Capabilities'>'User Defind Capabilities':
+- [Learn Module for setting up an AzureDevOPs personal Agent](https://learn.microsoft.com/en-us/training/modules/host-build-agent/4-create-build-agent)
+- Inorder to route the project to your Personal Agent Add these user defined capabilities in Project Settings>agent pools>[your Agent Pool]>[your Agent Name]>Capabilities>User Defind Capabilities:
     - 'maven'
     - 'Agent.Version -gtVersion 2.199'
 
@@ -57,13 +57,13 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 
 ![Agent pool](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_14.png)
 
-- To enable maven tasks/Spring boot on your agent, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html), [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
+- To proccess maven tasks/Spring boot for this specific project, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html), [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
 
 ![Maven Task](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_15.png)
 
-    - Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
-    - Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images
-    - I reduced the memory size on my containers in half, see deployment.yaml. The free tier of AKS only supports a node pool with 8 cpu core which for my image was 2 nodes. I ran out of memory and was unable to scale out.
+- Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
+- Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images
+- I reduced the memory size on my containers in half, see deployment.yaml. The free tier of AKS only supports a node pool with 8 cpu core which for my image was 2 nodes. I ran out of memory and was unable to scale out.
 
 ![Step 6 Complete](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_16.png)
 
