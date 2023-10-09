@@ -63,8 +63,9 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 
     - Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
     - Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images
+    - I reduced the memory size on my containers in half, see deployment.yaml. The free tier of AKS only supports a node pool with 8 cpu core which for my image was 2 nodes. I ran out of memory and was unable to scale out.
 
-
+![Step 6 Complete](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_16.png)
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
