@@ -47,7 +47,7 @@ stages:
       displayName: Build Spring Boot Jar
       inputs:
         mavenPomFile: 'petstore/petstoreproductservice/pom.xml'
-        mavenOptions: '-Xmx4096m'
+        mavenOptions: '-Xmx3072m'
         javaHomeOption: 'Path'
         jdkDirectory: 'C:\Program Files (x86)\Common Files\java-se-8u41-ri'
         publishJUnitResults: true
