@@ -42,19 +42,19 @@ stages:
     steps:
     - script: echo -n -e "{\"version\":\"$(Build.BuildNumber) - $(tag)\"}" > petstore/petstorepetservice/src/main/resources/version.json
 
-#    - task: Maven@3
-#      continueOnError: true 
-#      displayName: Build Spring Boot Jar
-#      inputs:
-#        mavenPomFile: 'petstore/petstorepetservice/pom.xml'
-#        mavenOptions: '-Xmx3072m'
-#        javaHomeOption: 'JDKVersion'
-#        jdkVersionOption: '8'
-#        jdkArchitectureOption: 'x64'
-#        publishJUnitResults: true
-#        testResultsFiles: 'petstore/petstorepetservice/target/surefire-reports/TEST-*.xml'
-#        codeCoverageToolOption: 'jaCoCo'
-#        goals: 'package'
+    - task: Maven@3
+      continueOnError: true 
+      displayName: Build Spring Boot Jar
+      inputs:
+        mavenPomFile: 'petstore/petstorepetservice/pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: true
+        testResultsFiles: 'petstore/petstorepetservice/target/surefire-reports/TEST-*.xml'
+        codeCoverageToolOption: 'jaCoCo'
+        goals: 'package'
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
