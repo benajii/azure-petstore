@@ -53,11 +53,12 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 
 ![user defined capabilities](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_13.png)
 
-    - In your Pipeline you will have to target your Agent pool, my personal agent pool was 'Dev Ops'
+- In your Pipeline you will have to target your Agent pool, my personal agent pool was 'Dev Ops pc'
 
 ![Agent pool](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_14.png)
-- To enable maven tasks on your agent, you need to Install [Java 1.8](https://codenotfound.com/java-download-install-jdk-8-windows.html) Mavin JDK, [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html)
+- To enable maven tasks/Spring boot on your agent, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html) Mavin JDK, [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
 
+![Maven Task](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_15.png)
 
     - Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
     - Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images

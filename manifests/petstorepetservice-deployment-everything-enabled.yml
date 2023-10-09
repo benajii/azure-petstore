@@ -14,10 +14,10 @@ spec:
     spec:
       nodeSelector:
         "kubernetes.io/os": linux
-        agentpool: nodepool1
+        agentpool: mynodepool
       containers:
       - name: petstoreservice
-        image: azurepetstorecontainerregistry.azurecr.io/petstorepetservice:latest
+        image: Stundzepetstorecr.azurecr.io/petstorepetservice:latest
         resources:
           requests:
             cpu: 250m
