@@ -47,7 +47,7 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 - [Azure Pipelines agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser)
 - [Install Azure Pipelines agent on personal computer](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops)
 -[Learn Module for setting up an AzureDevOPs personal Agent](https://learn.microsoft.com/en-us/training/modules/host-build-agent/4-create-build-agent)
-- Inorder to route the project to your Personal Agent Enable the following User Defind Capabilities on in Azure DevOPs (for this project):
+- Inorder to route the project to your Personal Agent Add these 'user defined capabilities' 'Project Settings'>'agent pools'>'<your Agent Pool>'>'<your Agent Name>'>'Capabilities'>'User Defind Capabilities':
     - 'maven'
     - 'Agent.Version -gtVersion 2.199'
 
@@ -56,13 +56,13 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 - In your Pipeline you will have to target your Agent pool, my personal agent pool was 'Dev Ops pc'
 
 ![Agent pool](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_14.png)
-- To enable maven tasks/Spring boot on your agent, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html) Mavin JDK, [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
+
+- To enable maven tasks/Spring boot on your agent, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html), [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
 
 ![Maven Task](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_15.png)
 
     - Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
     - Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images
-
 
 
 
