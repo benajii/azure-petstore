@@ -5,7 +5,7 @@ My azure Pet store project
 ### [Step 0](petstore/00-setup-your-environment/README.md)
 - [Documentation to create an Azure Button to deploy a template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button)
 - [Adding Images to ReadME](https://www.educative.io/answers/adding-images-to-readmemd-in-github) 
-- Azure button isn't currently supported for bicep so this is the ARM Template, I have converted the template to the free linux tier. [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbenajii%2Fazure-petstore%2Fmain%2Fbicepfiles%2Ftemplate.json)
+- Azure button isn't currently supported for bicep so this is the ARM Template, I have converted the template to the free Linux tier. [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbenajii%2Fazure-petstore%2Fmain%2Fbicepfiles%2Ftemplate.json)
 
 ![Step 0 Completed](petstore/00-setup-your-environment/images/00_6.png)
 
@@ -31,23 +31,23 @@ My azure Pet store project
 ![Step 4 Complete](petstore/04-configure-git-hub-action-for-ci-cd-into-app-service/images/04_10.png)
 
 ### [Step 5](petstore/05-create-an-azure-k8s-cluster/README.md)
-- Inorder to reduce costs I:
+- In order to reduce costs I:
     - deployed a free tier AKS
     - used a vm image that didn't support premium storage, this reduced my at-rest costs
     - Shutdown the AKS when not in use
 - [Video on what is Helm](https://www.youtube.com/watch?v=-ykwb1d0DXU)
 - [How to Install Helm on windows](https://phoenixnap.com/kb/install-helm)
-- [How to delete hellm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
+- [How to delete helm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
     - I had to restart the helm commands after there were some typos in the commands
 
 ![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_10.png)
 
 ### [step 6](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/README.md)
-Due to the limitations of a free DevOPs account i encountered error "No hosted parallelism has been purchased or granted" I found a workaround by creating an agent pool on my computer:
+Due to the limitations of a free DevOPs account I encountered error "No hosted parallelism has been purchased or granted" I found a workaround by creating an agent pool on my computer:
 - [Azure Pipelines agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser)
 - [Install Azure Pipelines agent on personal computer](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops)
 - [Learn Module for setting up an AzureDevOPs personal Agent](https://learn.microsoft.com/en-us/training/modules/host-build-agent/4-create-build-agent)
-- Inorder to route the project to your Personal Agent Add these user defined capabilities in Project Settings>agent pools>[your Agent Pool]>[your Agent Name]>Capabilities>User Defind Capabilities:
+- In order to route the project to your Personal Agent Add these user defined capabilities in Project Settings>agent pools>[your Agent Pool]>[your Agent Name]>Capabilities>User Defined Capabilities:
     - 'maven'
     - 'Agent.Version -gtVersion 2.199'
 
@@ -57,12 +57,12 @@ Due to the limitations of a free DevOPs account i encountered error "No hosted p
 
 ![Agent pool](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_14.png)
 
-- To proccess maven tasks/Spring boot for this specific project, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html), [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
+- To process maven tasks/Spring boot for this specific project, you need to Install [Java 1.8 x64](https://codenotfound.com/java-download-install-jdk-8-windows.html), [Download Maven](https://maven.apache.org/download.cgi) and [Install Maven](https://maven.apache.org/install.html). You will also have to configure your maven task as shown below
 
 ![Maven Task](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_15.png)
 
 - Be sure to run the agent on your computer before running the pipeline on Azure DevOps, otherwise your agent pool will be off-line
-- Be sure to run docker to enable docker engine for your job so the pipeline can build the docker images
+- Be sure to run Docker to enable Docker engine for your job so the pipeline can build the Docker images
 - I reduced the memory size on my containers in half, see deployment.yaml. The free tier of AKS only supports a node pool with 8 cpu core which for my image was 2 nodes. I ran out of memory and was unable to scale out.
 
 ![Step 6 Complete](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_16.png)
