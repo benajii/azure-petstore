@@ -8,11 +8,11 @@ bing:
 petstore:
   service:
     pet:
-      url: ${PETSTOREPETSERVICE_URL}
+      url: ${PETSTOREPETSERVICE_URL:http://localhost:8081}
     product:
-      url: ${PETSTOREPRODUCTSERVICE_URL}
+      url: ${PETSTOREPRODUCTSERVICE_URL:http://localhost:8082}
     order:
-      url: ${PETSTOREORDERSERVICE_URL}
+      url: ${PETSTOREORDERSERVICE_URL:http://localhost:8083}
     subscription:
       key: ${PETSTORESERVICES_SUBSCRIPTION_KEY}
   apim:
@@ -27,7 +27,7 @@ petstore:
     update:
       fixedRate: ${SIGNALR_UPDATE_FIXEDRATE:60000}
 server:
-  port: ${PETSTOREAPP_SERVER_PORT}
+  port: ${PETSTOREAPP_SERVER_PORT:http://localhost:8080}
   max-http-header-size: 1MB
 azure:
   activedirectory:
