@@ -1,4 +1,5 @@
-# Deploy to Azure Kubernetes Service
+Good Day,
+TH# Deploy to Azure Kubernetes Service
 # Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -86,7 +87,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
-              kubernetesServiceConnection: StundzePetStoreAKS
+              kubernetesServiceConnection: StundzepetstoreAKS-ingress-petstoreservices
               namespace: ingress-petstoreservices
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstorepetservice-deployment-everything-enabled.yml
