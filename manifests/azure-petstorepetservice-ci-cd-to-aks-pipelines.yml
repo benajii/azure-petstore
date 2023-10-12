@@ -83,10 +83,11 @@ stages:
         deploy:
           steps:
           - task: KubernetesManifest@0
+
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
-              kubernetesServiceConnection: StundzePetStoreAKS-ingress-petstoreservices
+              kubernetesServiceConnection: StundzepetstoreAKS-ingress-petstoreservices
               namespace: ingress-petstoreservices
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstorepetservice-deployment-everything-enabled.yml
