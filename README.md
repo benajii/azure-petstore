@@ -67,6 +67,14 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 
 ![Step 6 Complete](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_16.png)
 
+[Step 7](petstore/07-connect-petstoreapp-and-petstoreservice-together/README.md)
+- This step resulted in a 400 Bad Request error, I beleive this is do to the free tier im using on both the app and the AKS, there is no SSL support on the free tier of AKS. A 404 error would show if AKS was unreachable, and this project shows a requirement for SSL on the AKS.
+
+![Step 7 Complete](petstore/07-connect-petstoreapp-and-petstoreservice-together/images/07_2.png)
+
+[Step 8](petstore/08-configure-apps-to-use-application-insights/README.md).
+- 
+
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
     - I used this to practice writing and reading bicep files
