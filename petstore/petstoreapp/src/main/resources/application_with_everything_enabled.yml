@@ -68,8 +68,8 @@ spring:
   #  url: ${PETSTOREAPP_MYSQL_HC_CONN_STRING}
   #  username: ${PETSTOREAPP_MYSQL_HC_USERNAME}
   #  password: ${PETSTOREAPP_MYSQL_HC_PASSWORD}
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration #disable if hybrid connection demo turned off
+ # autoconfigure:
+ #   exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration #disable if hybrid connection demo turned off
 ga:
   tracking:
     id: ${GA_TRACKING_ID}

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-petstorepetservice
+  name: petstorepetservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aks-petstorepetservice
+      app: petstorepetservice
   template:
     metadata:
       labels:
-        app: aks-petstorepetservice
+        app: petstorepetservice
     spec:
       nodeSelector:
         "kubernetes.io/os": linux
@@ -41,7 +41,7 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: aks-petstorepetservice-hpa
+  name: petstorepetservice-hpa
 spec:
   maxReplicas: 4 # define max replica count
   minReplicas: 1  # define min replica count
