@@ -16,7 +16,7 @@ spec:
         "kubernetes.io/os": linux
         agentpool: mynodepool
       containers:
-      - name: petstorepetservice
+      - name: petstoreservice
         image: Stundzepetstorecr.azurecr.io/petstorepetservice:latest
         resources:
           requests:
