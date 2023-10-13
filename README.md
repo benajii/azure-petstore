@@ -73,7 +73,9 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 ![Step 7 Complete](petstore/07-connect-petstoreapp-and-petstoreservice-together/images/07_2.png)
 
 [Step 8](petstore/08-configure-apps-to-use-application-insights/README.md).
-- 
+- [AKS Secrets and namespace](https://stackoverflow.com/questions/46297949/sharing-secret-across-namespaces) As written the step below will make the secret but it will be in the default namespace and unavailable to your containers, they will fail to configure with secret not found. add '--namespace=<your namespace>' to add the secret to the correct namespace.
+
+![Command with error](petstore/08-configure-apps-to-use-application-insights/images/08_12.png)
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)

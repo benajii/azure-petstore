@@ -48,5 +48,5 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: aks-petstorepetservice
+    name: petstorepetservice
   targetCPUUtilizationPercentage: 80 # target CPU utilization
