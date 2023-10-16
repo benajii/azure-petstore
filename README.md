@@ -40,6 +40,8 @@ My azure Pet store project
 - [How to delete helm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
     - I had to restart the helm commands after there were some typos in the commands
 
+- I added extra HPA rules, inorder to remove them use [Kubectl delete HPA](https://stackoverflow.com/questions/39856927/how-to-turn-off-autoscaling-in-kubernetes-with-the-kubectl-command)
+
 ![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_10.png)
 
 ### [step 6](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/README.md)
@@ -68,7 +70,11 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 ![Step 6 Complete](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/images/06_16.png)
 
 [Step 7](petstore/07-connect-petstoreapp-and-petstoreservice-together/README.md)
-- This step resulted in a 400 Bad Request error, I beleive this is do to the free tier im using on both the app and the AKS, there is no SSL support on the free tier of AKS. A 404 error would show if AKS was unreachable, and this project shows a requirement for SSL on the AKS.
+- This step resulted in a 400 Bad Request error
+
+![Step 7 Complete](petstore/07-connect-petstoreapp-and-petstoreservice-together/images/07_2.png)
+
+ I beleive this is do to the free tier im using on both the app and the AKS, there is no SSL support on the free tier of AKS. A 404 error would show if AKS was unreachable, and this project shows a requirement for SSL on the AKS.
 
 ![Step 7 Complete](petstore/07-connect-petstoreapp-and-petstoreservice-together/images/07_2.png)
 
@@ -76,6 +82,10 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 - [AKS Secrets and namespace](https://stackoverflow.com/questions/46297949/sharing-secret-across-namespaces) As written the step below will make the secret but it will be in the default namespace and unavailable to your containers, they will fail to configure with secret not found. add '--namespace=<your namespace>' to add the secret to the correct namespace.
 
 ![Command with error](petstore/08-configure-apps-to-use-application-insights/images/08_12.png)
+
+![Step 8 Complete](petstore/08-configure-apps-to-use-application-insights/images/08_13.png)
+
+[Step 9](petstore/09-configure-apim-in-front-of-petstoreservice/README.md)
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
