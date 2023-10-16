@@ -17,10 +17,10 @@ management:
         include: "*"       
   trace:
     http:
-      enabled: true 
+      enabled: false 
   endpoint:
     httptrace:
-      enabled: true
+      enabled: false
     
 data:
   pets:

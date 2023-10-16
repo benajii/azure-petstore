@@ -82,7 +82,7 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 
 ![Step 8 Complete](petstore/08-configure-apps-to-use-application-insights/images/08_13.png)
 
-[Step 9](petstore/09-configure-apim-in-front-of-petstoreservice/README.m)
+[Step 9](petstore/09-configure-apim-in-front-of-petstoreservice/README.md)
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
