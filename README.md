@@ -71,10 +71,7 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 
 [Step 7](petstore/07-connect-petstoreapp-and-petstoreservice-together/README.md)
 - This step resulted in a 400 Bad Request error
-
-![Step 7 Complete](petstore/07-connect-petstoreapp-and-petstoreservice-together/images/07_2.png)
-
- I beleive this is do to the free tier im using on both the app and the AKS, there is no SSL support on the free tier of AKS. A 404 error would show if AKS was unreachable, and this project shows a requirement for SSL on the AKS.
+- I was unable to resolve the issue, Its either and issue with the loadbalencer or the service tiers i chose
 
 ![Step 7 Complete](petstore/07-connect-petstoreapp-and-petstoreservice-together/images/07_2.png)
 
@@ -85,7 +82,7 @@ Due to the limitations of a free DevOPs account I encountered error "No hosted p
 
 ![Step 8 Complete](petstore/08-configure-apps-to-use-application-insights/images/08_13.png)
 
-[Step 9](petstore/09-configure-apim-in-front-of-petstoreservice/README.md)
+[Step 9](petstore/09-configure-apim-in-front-of-petstoreservice/README.m)
 
 ## Additional Notes
 - [convert JSON to Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
