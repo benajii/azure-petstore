@@ -13,7 +13,7 @@ spec:
         app: aks-petstorepetservice
     spec:
       containers:
-      - name: petstorepetservice
+      - name: aks-petstorepetservice
         image: stundzepetstorecr.azurecr.io/petstorepetservice:latest
         ports:
         - containerPort: 80
