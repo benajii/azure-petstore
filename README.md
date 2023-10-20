@@ -38,11 +38,16 @@ My azure Pet store project
 - [Video on what is Helm](https://www.youtube.com/watch?v=-ykwb1d0DXU)
 - [How to Install Helm on windows](https://phoenixnap.com/kb/install-helm)
 - [How to delete helm namespace](https://phoenixnap.com/kb/helm-delete-deployment-namespace)
+- [How to update a Helm service with new commands](https://github.com/helm/helm/issues/3134)
     - I had to restart the helm commands after there were some typos in the commands
 
 - I added extra HPA rules, inorder to remove them use [Kubectl delete HPA](https://stackoverflow.com/questions/39856927/how-to-turn-off-autoscaling-in-kubernetes-with-the-kubectl-command)
 
-![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_10.png)
+- [This script finally configured a working LoadBalencer for me](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
+
+- After Reviewing the logs on this 400 error, The petservice has a MethodArgumentTypeMismatch Java error. I do not know how to fix it, however the AKS and App store are working correctly and the loadbalencer is routing to the container.
+
+![Step 5 Complete](petstore/05-create-an-azure-k8s-cluster/images/05_11.png))
 
 ### [step 6](petstore/06-configure-ado-pipeline-for-ci-cd-into-aks/README.md)
 Due to the limitations of a free DevOPs account I encountered error "No hosted parallelism has been purchased or granted" I found a workaround by creating an agent pool on my computer:
